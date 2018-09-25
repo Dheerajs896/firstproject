@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+
 import Navigation from './allPages/Navigation';
-import Registar from './allPages/Registration';
-import Login from './allPages/Login';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        
-        <Login />
-      </div>
+    	<BrowserRouter>
+	      <div>
+	        <Navigation />
+	      </div>
+    	</BrowserRouter>
     );
   }
 }

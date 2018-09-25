@@ -1,24 +1,24 @@
 import React from 'react';
+import { Route , Link } from 'react-router-dom';
 
+import Login from './Login';
+import Registration from './Registration';
+import Mainpage from './Mainpage';
 const Navigation = () =>{
 	return(
 		<div>
 			<nav class="navbar navbar-inverse">
 			  <div class="container-fluid">
-			    <div class="navbar-header">
-			      <a class="navbar-brand" href="#">First Project</a>
-			    </div>
 			    <ul class="nav navbar-nav">
-			      <li class="active"><a href="#">Home</a></li>
-			      <li><a href="#">Login</a></li>
-			      <li><a href="#">Registration</a></li>
+			      <li class="active"><Link to="/">Home</Link></li>
+			      <li><Link to="/Login">Login</Link></li>
+			      <li><Link to="/Registration">Registration</Link></li>
 			    </ul>
 			  </div>
-			</nav> 
-
-			<div class="bodyContaint">
-				<h1>Welcome to React JS Home Page</h1>
-			</div>
+			</nav>
+			<Route path='/' exact component={Mainpage} />
+			<Route path='/Login' exact component={Login} />
+			<Route path='/Registration' component={Registration} />
 		</div>
 	);
 }
