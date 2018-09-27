@@ -11,10 +11,10 @@ class Registration extends Component {
 
 	handleChange = event =>{
 		this.setState({
-			name: event.target.value,
-			number: event.target.value,
-			email: event.target.value,
-			pwd: event.target.value
+			[event.target.name]:event.target.value,
+			[event.target.number]:event.target.value,
+			[event.target.email]:event.target.value,
+			[event.target.pwd]:event.target.value
 		});
 	}
 
@@ -27,10 +27,14 @@ class Registration extends Component {
 			email: this.state.email,
 			pwd: this.state.pwd
 		}
-
-		console.log(RegDetails);
+		axios.post("http://localhost/demoapi/register.php",{RegDetails})
+		.then(res=>{
+			console.log(res);
+			console.log(res.data);	
+		})
+		
 	}
-	
+
 	render(){
 		return(
 			<div>
