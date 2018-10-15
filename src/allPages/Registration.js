@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Spinner from "./Spinner";
 
 class Registration extends Component {
   state = {
     name: "",
     number: "",
     email: "",
-    pwd: ""
+    pwd: "",
+    loading: false
   };
 
   handleChange = event => {
@@ -20,7 +22,7 @@ class Registration extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
+    this.setState({ loading: true });
     const RegDetails = {
       name: this.state.name,
       number: this.state.number,
@@ -29,8 +31,10 @@ class Registration extends Component {
     };
     axios.post("/api/register.php", RegDetails).then(res => {
       if (res.data.status === "false") {
+        this.setState({ loading: false });
         alert(res.data.msg);
       } else {
+        this.setState({ loading: false });
         alert(res.data.msg);
       }
     });
@@ -89,7 +93,12 @@ class Registration extends Component {
             <button type="submit" class="btn btn-default">
               Submit
             </button>
+            <div>
+              {this.state.loading}
+              {<Spinner />}
+            </div>
           </form>
+          <div />
         </div>
       </div>
     );

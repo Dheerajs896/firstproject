@@ -3,7 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-.bodyContaint{
-	padding-top: 15%;
-	text-align: center;
+.bodyContaint {
+  padding-top: 15%;
+  text-align: center;
+}
+.Spinner {
+  text-align: center;
 }
