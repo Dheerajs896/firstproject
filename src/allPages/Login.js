@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Spinner from "./Spinner";
 class Login extends Component {
   state = {
     email: "",
@@ -16,6 +17,7 @@ class Login extends Component {
 
   SubmitHandler = event => {
     event.preventDefault();
+    this.setState({ loading: true });
     const loginData = {
       email: this.state.email,
       pwd: this.state.pwd
@@ -23,8 +25,10 @@ class Login extends Component {
 
     axios.post("api/login.php", loginData).then(res => {
       if (res.data.status === "false") {
+        this.setState({ loading: false });
         alert(res.data.msg);
       } else {
+        this.setState({ loading: false });
         alert(res.data.msg);
       }
     });
@@ -57,9 +61,13 @@ class Login extends Component {
                 onChange={this.changeHandler}
               />
             </div>
-            <button type="submit" class="btn btn-default">
-              Submit
-            </button>
+            {this.state.loading ? (
+              <Spinner />
+            ) : (
+              <button type="submit" class="btn btn-default">
+                Submit
+              </button>
+            )}
           </form>
         </div>
       </div>

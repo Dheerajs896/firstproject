@@ -90,13 +90,13 @@ class Registration extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <button type="submit" class="btn btn-default">
-              Submit
-            </button>
-            <div>
-              {this.state.loading}
-              {<Spinner />}
-            </div>
+            {this.state.loading ? (
+              <Spinner />
+            ) : (
+              <button type="submit" class="btn btn-default">
+                Submit
+              </button>
+            )}
           </form>
           <div />
         </div>
