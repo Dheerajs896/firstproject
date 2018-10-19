@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Spinner from "./Spinner";
+
 class Login extends Component {
   state = {
     email: "",
@@ -9,10 +10,9 @@ class Login extends Component {
   };
 
   changeHandler = event => {
-    this.setState({
-      email: event.target.value,
-      pwd: event.target.value
-    });
+    var name = event.target.name;
+    var value = event.target.value;
+    this.setState({ [name]: value });
   };
 
   SubmitHandler = event => {
@@ -29,6 +29,7 @@ class Login extends Component {
         alert(res.data.msg);
       } else {
         this.setState({ loading: false });
+        localStorage.setItem("login", "Done");
         alert(res.data.msg);
       }
     });
