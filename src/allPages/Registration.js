@@ -43,47 +43,47 @@ class Registration extends Component {
   render() {
     return (
       <div>
-        <div class="container">
+        <div className="container">
           <h2>Registration Form</h2>
           <form onSubmit={this.handleSubmit}>
-            <div class="form-group">
+            <div className="form-group">
               <label for="email">Name</label>
               <input
                 type="type"
-                class="form-control"
+                className="form-control"
                 id="name"
                 placeholder="Enter Name"
                 name="name"
                 onChange={this.handleChange}
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label for="email">number</label>
               <input
                 type="type"
-                class="form-control"
+                className="form-control"
                 id="number"
                 placeholder="Enter Number"
                 name="number"
                 onChange={this.handleChange}
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label for="email">Email</label>
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="email"
                 placeholder="Enter email"
                 name="email"
                 onChange={this.handleChange}
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label for="pwd">Password</label>
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="pwd"
                 placeholder="Enter password"
                 name="pwd"
@@ -93,7 +93,7 @@ class Registration extends Component {
             {this.state.loading ? (
               <Spinner />
             ) : (
-              <button type="submit" class="btn btn-default">
+              <button type="submit" className="btn btn-default">
                 Submit
               </button>
             )}

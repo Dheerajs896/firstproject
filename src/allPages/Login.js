@@ -31,8 +31,8 @@ class Login extends Component {
         this.setState({ loading: false });
         alert(res.data.msg);
       } else {
-        this.setState({ loading: false, redirect: true });
         localStorage.setItem("login", "Done");
+        this.setState({ loading: false, redirect: true });
         alert(res.data.msg);
       }
     });
